@@ -9,7 +9,7 @@
 echo "This is a Simple Password Generator"
 
 echo " "
-#second pause
+sleep 1
 
 echo "Please enter the desired length of your password: "
 read PASS_LENGTH
