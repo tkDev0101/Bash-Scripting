@@ -310,6 +310,13 @@ echo ""
 echo "#16. Exit status"
 echo ""
 
+ls /not/a/real/path 2> /dev/null
+
+if [[ $? -ne 0 ]]; then
+  echo "Previous command failed"
+else
+  echo "Success!"
+fi
 
 
 echo ""
@@ -332,6 +339,9 @@ echo "#17. Trap & Signal Handliing"
 echo ""
 
 
+trap "echo 'Script interrupted! Exiting cleanly...'; exit 1" SIGNT
+
+
 echo ""
 echo "*********************"
 echo ""
@@ -348,11 +358,15 @@ echo ""
 echo "#18.  Subshell"
 echo ""
 
+output=$( ls | grep ".sh")
+echo "Shell scripts in this directory:"
+echo "$output"
+
 
 echo ""
 echo "****************"
 echo ""
-sleep 2
+sleep 4
 
 
 
@@ -374,7 +388,7 @@ fi
 echo ""
 echo "*****************"
 echo ""
-sleep 2
+sleep 4
 
 
 
