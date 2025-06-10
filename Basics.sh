@@ -29,24 +29,23 @@ echo "You like: $LANGUAGE!"
 echo " "
 echo "***************"
 echo " "
-sleep 1
+sleep 2
 
 
 #4. If-else Statements
 if [ "$LANGUAGE" == "bash" ]; then
   echo "Great Choice! Bash is super Powerful."
 elif [ "$LANGUAGE" == "python" ]; then
-  echo "Python is also a Great choice  for Scripting."
-else 
-  echo "That $LANGUAGE is cool too, i guess"
+  echo "Python is also a Great choice for Scripting."
+else
+  echo "That $LANGUAGE is cool too, I guess"
 fi
-
-
 
 echo " "
 echo "***************"
 echo " "
-sleep 1
+sleep 2
+
 
 
 #5. Case statement
@@ -67,12 +66,12 @@ case $NUM in
     ;;
 esac
 
-
-
 echo " "
 echo "******************"
 echo " "
-sleep 1
+sleep 2
+
+
 
 
 #6. For Loop
@@ -82,11 +81,13 @@ for i in {1..5}; do
   echo "Number: $i"
 done
 
-
 echo " "
 echo "********************"
 echo " "
-sleep 1
+sleep 3
+
+
+
 
 
 #7. While Loop
@@ -100,7 +101,8 @@ done
 echo " "
 echo "******************"
 echo " "
-sleep 1
+sleep 2
+
 
 
 #8. Function
@@ -110,21 +112,29 @@ greet_user(){
 greet_user
 
 
-
 echo " "
 echo "************************"
 echo " "
-sleep 1
+sleep 2
+
 
 
 #Checking if a file exists
-file="myfile.txt"
+file="testFile.txt"
 if [ -f "file" ]; then
   echo "File '$file' exists."
 else 
   echo "File '$file' does not existCreating it..."
   echo "This is a simple file." > "$file"
 fi
+
+
+echo " "
+echo "**************************"
+echo " "
+sleep 1
+
+
 
 #10.exit code
 echo "Exiting script..."
