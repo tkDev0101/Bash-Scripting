@@ -1,0 +1,31 @@
+=====================================
+==== System Health Report: 2025-06-12_14-55-36 =====
+=====================================
+
+--- Memory Usage ---
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       5.5Gi       6.2Gi        17Mi       223Mi       6.2Gi
+Swap:           36Gi        15Mi        35Gi
+
+--- Disk Usage ---
+
+--- System Uptime ---
+up 6 hours, 49 minutes
+
+---- Top 5 Processess by CPU ----
+539      tk         0.3      command
+1        root       0.0      command
+7        root       0.0      command
+8        tk         0.0      command
+626      tk         0.0      command
+
+--- Disk Space Alerts (10%) ---
+Warning: Partition / is 17% Full.
+Warning: Partition /dev is 17% Full.
+Warning: Partition /run is 17% Full.
+Warning: Partition /run/lock is 17% Full.
+Warning: Partition /run/shm is 17% Full.
+Warning: Partition /run/user is 17% Full.
+Warning: Partition /sys/fs/cgroup is 17% Full.
+Warning: Partition /mnt/c is 17% Full.
+==== END OF REPORT=====
