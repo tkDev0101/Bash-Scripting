@@ -147,6 +147,16 @@ echo ""
 echo "#9. Arrays"
 echo ""
 
+fruits=("Banana", "Apple", "Orange", "Naartjie")
+
+for fruit in "${fruits[@]}"; do
+  echo "I like $fruit"
+done
+
+
+
+echo ""
+
 colors=("red", "blue", "green", "orange", "yellow")
 
 echo "Array Items: "

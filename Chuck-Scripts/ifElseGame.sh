@@ -12,7 +12,7 @@ echo "Are you ready? (y/n)"
 
 read ready
 
-if [[ $ready == "y" ]]; then
+if [[ $ready == "y" || $ready == "Y" ]]; then
   echo "Nazoke, You have defeated the First Beast!"
 else
   echo "You died! Hade"
@@ -21,15 +21,14 @@ fi
 
 
 
-sleep 1
+sleep 0.5
 
 #Second Battle
 beast=$(( $RANDOM % 10 ))
 
+echo ""
 echo "Get Ready for the next Beast, it's Bruce!"
-echo "Pick a Number between 1-10."
-
-read number
+read -p "Pick a Number between 1-10: " number
 
 if [[ $beast == $number ]]; then
   echo "Nazoke, You defeated Bruce! Congrats Fellow Tarnisher."
