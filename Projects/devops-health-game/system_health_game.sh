@@ -116,30 +116,30 @@ save_report_to_log(){
 
   #Begin log
   {
-	echo "====================================="
+	echo -e "\n===================================================="
 	echo "==== System Health Report: $TIMESTAMP ====="
-	echo "====================================="
+	echo "===================================================="
 
 
-	echo -e "\n--- Memory Usage ---"
+	echo -e "\n\n--- Memory Usage ---"
 	free -h
 
 
-	echo -e "\n--- Disk Usage ---"
+	echo -e "\n\n--- Disk Usage ---"
 	df -h | grep '^/dev/'
 
 
-	echo -e "\n--- System Uptime ---"
+	echo -e "\n\n--- System Uptime ---"
 	uptime -p
 
 
-	echo -e "\n---- Top 5 Processess by CPU ----"
+	echo -e "\n\n---- Top 5 Processess by CPU ----"
 	ps -eo pid,user,%cpu,comm --sort=-%cpu | head -n 6 | tail -n 5 | while read pid user cpu command; do
 	    printf "%-8s %-10s %-8s %s\n" "$pid" "$user" "$cpu" "command"
 	done
 
 
-	echo -e "\n--- Disk Space Alerts (10%) ---"
+	echo -e "\n\n--- Disk Space Alerts (10%) ---"
 
 	df -h --output=pcent,target | tail -n +2 | while read output; do
 	  USEP=$(echo "$output" | awk '{print $1}' | tr -d '%')
@@ -150,7 +150,7 @@ save_report_to_log(){
 	done
 
 
-	echo "==== END OF REPORT====="
+	echo -e "\n\n==== END OF REPORT=====\n\n"
   } >> "$LOG_FILE"
 
 
