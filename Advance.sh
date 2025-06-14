@@ -1,12 +1,9 @@
 #!/bin/bash
 
-#----------------------------
+echo -e "\n----------------------------"
 echo "Bash Scripting: Basic + Advance"
-#----------------------------
+echo -e "----------------------------\n"
 
-echo " "
-echo "*************"
-echo " "
 sleep 1
 
 
@@ -19,7 +16,6 @@ greeting="Guten Tag"
 
 
 
-echo ""
 echo "#2. Echo (Output)"
 echo ""
 
@@ -42,7 +38,6 @@ sleep 2
 
 echo ""
 echo "#4. If-else Statements"
-echo ""
 
 
 if [ "$LANGUAGE" == "bash" ]; then
@@ -60,7 +55,7 @@ echo " "
 sleep 3
 
 
-
+exit 0
 
 
 echo ""
@@ -200,7 +195,7 @@ sleep 4
 
 echo ""
 echo "#11. getopts (flags parsing)"
-echo "" 
+echo ""
 
 
 while getopts ":u:p:" opt; do
@@ -214,7 +209,7 @@ done
 
 if [[ -n "$user" && -n "$pass" ]]; then
   echo "User: $user, Pass: $pass"
-else 
+else
   echo "GeoTopts Not Working"
 fi
 
