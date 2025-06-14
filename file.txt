@@ -1,2 +1,0 @@
-This will overwrite file.txt
-This will append to file.txt

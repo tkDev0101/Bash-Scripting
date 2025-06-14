@@ -17,7 +17,6 @@ greeting="Guten Tag"
 
 
 echo "#2. Echo (Output)"
-echo ""
 
 echo "$greeting, $name! You are $age years old."
 
@@ -27,16 +26,10 @@ read -p "Enter your favourite Langauge for Scripting: " LANGUAGE
 echo "Your chosen Language is: $LANGUAGE!"
 
 
-echo ""
-echo "***************"
-echo " "
 sleep 2
+echo -e "\n\n***************"
 
 
-
-
-
-echo ""
 echo "#4. If-else Statements"
 
 
@@ -49,16 +42,10 @@ else
 fi
 
 
-echo ""
-echo "***************"
-echo " "
 sleep 3
+echo -e "\n\n\n***************"
 
 
-exit 0
-
-
-echo ""
 echo "#5. Case statement"
 echo ""
 
@@ -72,38 +59,30 @@ case $NUM in
 esac
 
 
-echo ""
-echo "******************"
-echo " "
-sleep 4
+
+
+sleep 2
+echo -e "\n\n\n***************"
 
 
 
 
-
-echo ""
 echo "#6. For Loop"
-echo ""
-
-
 echo "Counting from 1 -> 3 using For Loop:"
 
 for i in {1..3}; do
   echo "i. $i"
 done
 
-echo ""
-echo "********************"
-echo " "
-sleep 4
+
+sleep 2
+echo -e "\n\n\n***************"
 
 
 
 
 
-echo ""
 echo "#7. While Loop"
-echo ""
 
 count=3
 echo "Countdown using While Loop "
@@ -113,34 +92,28 @@ while [ $count -gt 0 ]; do
   ((count--))
 done
 
-echo ""
-echo "******************"
-echo " "
-sleep 4
 
 
 
+sleep 2
+echo -e "\n\n\n***************"
 
-echo ""
+
 echo "#8. Function"
-echo ""
 
 greet_user(){
   echo "Printing From Inside The Function: Hello again, $1!"
 }
 greet_user "$name"
 
-echo ""
-echo "************************"
-echo " "
-sleep 4
+
+
+sleep 2
+echo -e "\n\n\n***************"
 
 
 
-
-echo ""
 echo "#9. Arrays"
-echo ""
 
 fruits=("Banana", "Apple", "Orange", "Naartjie")
 
@@ -164,39 +137,25 @@ echo ""
 echo "Third color in Array is: ${colors[2]}"
 
 
-echo ""
-echo "*********************"
-echo ""
-sleep 4
+
+sleep 2
+echo -e "\n\n\n***************"
 
 
 
-
-
-
-echo ""
 echo "#10. Command-Line Arguements"
-echo ""
 
 echo "You passed $# arguments: $@"
 echo "First arg is: $1"
 echo "Second arg is: $2"
 
 
-echo ""
-echo "*****************"
-echo ""
-sleep 4
+sleep 2
+echo -e "\n\n\n***************"
 
 
 
-
-
-
-echo ""
 echo "#11. getopts (flags parsing)"
-echo ""
-
 
 while getopts ":u:p:" opt; do
   case $opt in
@@ -214,18 +173,14 @@ else
 fi
 
 
-echo ""
-echo "************************"
-echo " "
-sleep 5
+
+sleep 2
+echo -e "\n\n\n***************"
 
 
 
 
-
-echo ""
 echo "#12. Arithmetic"
-echo ""
 
 
 a=5
@@ -235,85 +190,51 @@ sum=$(( a+b ))
 echo "$a + $b = $sum"
 
 
-echo ""
-echo "*******************"
-echo ""
-sleep 3
+
+sleep 2
+echo -e "\n\n\n***************"
 
 
 
-
-
-
-
-
-echo ""
 echo "#13. Command substitution"
-echo ""
-
 
 today=$(date "+%Y-%m-%d")
 echo "Today's date is $today"
 
 
-echo ""
-echo "******************"
-echo ""
+
 sleep 2
+echo -e "\n\n\n***************"
 
 
 
-
-
-
-
-echo ""
 echo "#14. logging"
-echo ""
 
 log_file="script.log"
 echo "[$today] Script executed by $USER" >> "$log_file"
 
 
-echo ""
-echo "********************"
-echo ""
+
 sleep 2
+echo -e "\n\n\n***************"
 
 
-
-
-
-
-
-
-
-echo ""
 echo "#15 File redirection"
-echo ""
 
 echo "This will overwrite file.txt" > file.txt
 echo "This will append to file.txt" >> file.txt
 
 
-echo ""
-echo "******************"
-echo ""
-sleep 4
+
+sleep 2
+echo -e "\n\n\n***************"
 
 
 
 
 
 
-
-
-
-
-
-echo ""
 echo "#16. Exit status"
-echo ""
 
 ls /not/a/real/path 2> /dev/null
 
