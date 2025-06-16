@@ -36,6 +36,34 @@ list_real_users() {
 
 
 
+# Function 2: Check Password Expiry Info
+check_password_expiry() {
+    echo -e "\n${YELLOW}--- Password Expiry Info ---${NC}"
+    awk -F: '($3>=1000)&&($7!="/usr/sbin/nologin")&&($7!="/bin/false") {print $1}' /etc/passwd |
+    while read user; do
+        echo -e "\n ${GREEN}User: $user${NC}"
+        sudo chage -l "$user" | grep -E "Last password change|Password expires|Maximum|Minimum"
+    done
+}
+
+
+
+
+# Function 3: Show Last Login Per User
+show_last_login() {
+    echo -e "\n${YELLOW}--- Last Login Information ---${NC}"
+    
+    # Get real user list
+    awk -F: '($3>=1000)&&($7!="/usr/sbin/nologin")&&($7!="/bin/false") {print $1}' /etc/passwd |
+    while read user; do
+        LOGIN_INFO=$(lastlog -u "$user" | tail -n 1)
+        echo "👤 $LOGIN_INFO"
+    done
+}
+
+
+
+
 #=========================================================
 
 # Menu
@@ -55,9 +83,18 @@ while true; do
             list_real_users
             ;;
 
+        2)
+            echo -e "${GREEN}>> Checking password expiration...${NC}"
+            check_password_expiry
+            ;;
+
+        3)
+            echo -e "${GREEN}>> Showing last login...${NC}"
+            show_last_login
+            ;;
+
+
         
-        2) echo -e "${GREEN}>> Checking password expiration...${NC}" ;;
-        3) echo -e "${GREEN}>> Showing last login...${NC}" ;;
         4) echo -e "${GREEN}>> Generating full audit report...${NC}" ;;
         0) echo "Exiting. Goodbye!"; break ;;
         *) echo -e "${RED}Invalid choice, try again.${NC}" ;;
