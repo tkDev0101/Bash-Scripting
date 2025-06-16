@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# ==============================
-# User Audit Report Generator
-# For System Administrators & DevOps Engineers
-# ==============================
+echo "=============================="
+echo "User Audit Report Generator"
+echo "For System Administrators & DevOps Engineers"
+echo -e "==============================\n"
+
 
 # Variables
-LOG_DIR=~/devops-user-audit/logs
+LOG_DIR=~/Shell-Scripting-WSL/Projects/devops-user-audit/logs
 mkdir -p "$LOG_DIR"
 
 DATE=$(date '+%Y-%m-%d_%H-%M')
@@ -17,6 +18,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
+
 
 # Menu
 while true; do
@@ -37,3 +39,4 @@ while true; do
         *) echo -e "${RED}Invalid choice, try again.${NC}" ;;
     esac
 done
+\
