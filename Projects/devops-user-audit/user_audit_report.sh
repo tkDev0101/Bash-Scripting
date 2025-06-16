@@ -20,6 +20,22 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 
+#=========================================================
+#Functions
+
+# Function 1: List Real Users
+list_real_users() {
+    echo -e "\n${YELLOW}--- Real (Human) Users ---${NC}"
+    awk -F: '($3>=1000)&&($7!="/usr/sbin/nologin")&&($7!="/bin/false") {
+        printf "%-15s UID: %-6s Home: %-20s Shell: %s\n", $1, $3, $6, $7
+    }' /etc/passwd
+}
+
+
+
+
+#=========================================================
+
 # Menu
 while true; do
     echo -e "\n${YELLOW}=== USER AUDIT TERMINAL ===${NC}"
@@ -30,8 +46,14 @@ while true; do
     echo "0) Exit"
     read -p "Choose an option: " choice
 
+
     case "$choice" in
-        1) echo -e "${GREEN}>> Listing real users...${NC}" ;;
+        1) 
+            echo -e "${GREEN}>> Listing real users...${NC}"
+            list_real_users
+            ;;
+
+        
         2) echo -e "${GREEN}>> Checking password expiration...${NC}" ;;
         3) echo -e "${GREEN}>> Showing last login...${NC}" ;;
         4) echo -e "${GREEN}>> Generating full audit report...${NC}" ;;
