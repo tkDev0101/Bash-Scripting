@@ -216,7 +216,7 @@ check_disk_alerts() {
     PARTITION=$(echo "$output" | awk '{print $2}' )
 
     if [ "$USEP" -ge "$THRESHOLD" ]; then
-	echo -e "${RED}" ALERT: $PARTITION is ${USEP}% full! ${NC}"
+	echo -e "${RED} ALERT: $PARTITION is ${USEP}% full! ${NC}"
 	triggered=1
     fi
   done
@@ -255,6 +255,7 @@ sleep 1
 echo -e "\nYou're the Jr. DevOps Engineer on duty. \nYour mission: Run diagnostics and keep the system stable. \n"
 
 
+
 #Menu Loop
 while true; do
   echo -e "${YELLOW}Main Menu:${NC}"
@@ -265,7 +266,7 @@ while true; do
   echo "5. View Previous Health Reports"
   echo "6. Check Disk Space Alerts"
   echo -e "7. Exit\n"
-  read -p "Choose an Option [1-5]: " choice
+  read -p "Choose an Option [1-7]: " choice
 
 
   case "$choice" in

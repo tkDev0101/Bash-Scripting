@@ -1,0 +1,36 @@
+
+====================================================
+==== System Health Report: 2025-06-16_18-24-18 =====
+====================================================
+
+
+--- Memory Usage ---
+               total        used        free      shared  buff/cache   available
+Mem:           9.6Gi       365Mi       9.0Gi       4.0Mi       329Mi       9.0Gi
+Swap:          3.0Gi          0B       3.0Gi
+
+
+--- Disk Usage ---
+/dev/sdc       1007G  1.7G  954G   1% /
+
+
+--- System Uptime ---
+up 17 hours, 10 minutes
+
+
+---- Top 5 Processess by CPU ----
+1        root       0.0      command
+2        root       0.0      command
+6        root       0.0      command
+59       root       0.0      command
+83       root       0.0      command
+
+
+--- Disk Space Alerts (10%) ---
+Warning: Partition /usr/lib/wsl/drivers is 61% Full.
+Warning: Partition /mnt/c is 61% Full.
+
+
+==== END OF REPORT=====
+
+
