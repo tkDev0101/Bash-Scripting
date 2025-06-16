@@ -46,7 +46,6 @@ view_system_status() {
 
 
 
-
 #2. Function:  Display Top 5 CPU Processes
 show_top_proceses(){
     echo -e "\n${yellow}---- Top 5 Processess by CPU Usage ----${NC}"
@@ -59,7 +58,6 @@ show_top_proceses(){
 
     echo ""
  }
-
 
 
 
@@ -101,8 +99,6 @@ run_full_health_report(){
   echo -e "\n${GREEN}>> Health Check Complete.${NC}\n"
 
  }
-
-
 
 
 
@@ -170,12 +166,8 @@ save_report_to_log(){
 
 
 
-
-
-
 #5. Fuction: View  Previous Reports
 view_previous_reports() {
-
 
   #Define Log Directory & Filename
   LOG_DIR=~/Shell-Scripting-WSL/Projects/devops-health-game/logs
@@ -205,10 +197,6 @@ view_previous_reports() {
 
 
  }
- #end Function
-
-
-
 
 
 
@@ -216,11 +204,32 @@ view_previous_reports() {
 #6. Function - Disk Sapce alerts
 check_disk_alerts() {
 
-  echo 
+  echo -e "\n${YELLOW}---- Disk Space Alerta (Threshhold: 10%) ----${NC}\n"
+
+  #Set Threshold
+  THRESHOLD=80
+  triggered=0
+
+  #Get Partitions and Usage
+  df -h --output=pcent,target | tail -n +2 | while read -r output; do
+    USEP=$(echo "$output" | awk '{print $1}' | tr -d '%')
+    PARTITION=$(echo "$output" | awk '{print $2}' )
+
+    if [ "$USEP" -ge "$THRESHOLD" ]; then
+	echo -e "${RED}" ALERT: $PARTITION is ${USEP}% full! ${NC}"
+	triggered=1
+    fi
+  done
+
+
+  if [ "$triggered" -eq 0 ]; then
+    echo -e "${GREEN} All Partitions are Under ${THRESHOLD}% usage. ${NC}"
+  fi
+
+
+  echo ""
 
  }
- #end function
-
 
 
 
@@ -301,11 +310,12 @@ while true; do
   clear
 done
 
+#==========================================================
+
 #while true; do....done
 #ANSI Color codes
 #tk uyafunda
 
-# Control Shift underscore -> goes to a specific line
 
 # Control shift 6	   -> set mark
 # Alt 6			   -> Copy
@@ -313,23 +323,8 @@ done
 # Control U		   -> Paste
 
 
+# Control Shift underscore -> goes to a specific line
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#==========================================================
