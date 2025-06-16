@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "=============================="
+
+clear
+echo -e "\n=============================="
 echo "User Audit Report Generator"
 echo "For System Administrators & DevOps Engineers"
 echo -e "==============================\n"
