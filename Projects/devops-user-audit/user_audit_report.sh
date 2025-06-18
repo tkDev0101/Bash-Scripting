@@ -25,6 +25,7 @@ NC='\033[0m' # No Color
 #=========================================================
 #Functions
 
+
 # Function 1: List Real Users
 list_real_users() {
     echo -e "\n${YELLOW}--- Real (Human) Users ---${NC}"
@@ -32,7 +33,7 @@ list_real_users() {
         printf "%-15s UID: %-6s Home: %-20s Shell: %s\n", $1, $3, $6, $7
     }' /etc/passwd
 }
-
+#awk 'pattern {action}' filename
 
 
 
