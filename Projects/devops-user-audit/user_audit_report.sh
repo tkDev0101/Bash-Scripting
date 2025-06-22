@@ -33,9 +33,10 @@ list_real_users() {
         printf "%-15s UID: %-6s Home: %-20s Shell: %s\n", $1, $3, $6, $7
     }' /etc/passwd
 }
-#awk 'pattern {action}' filename
 
-
+#awk -F, 'pattern {action}' filename
+#grep [options] 'pattern' filename
+#grep -Ei "error"|"user" logfile.txt
 
 # Function 2: Check Password Expiry Info
 check_password_expiry() {
@@ -53,7 +54,7 @@ check_password_expiry() {
 # Function 3: Show Last Login Per User
 show_last_login() {
     echo -e "\n${YELLOW}--- Last Login Information ---${NC}"
-    
+
     # Get real user list
     awk -F: '($3>=1000)&&($7!="/usr/sbin/nologin")&&($7!="/bin/false") {print $1}' /etc/passwd |
     while read user; do
@@ -79,7 +80,7 @@ while true; do
 
 
     case "$choice" in
-        1) 
+        1)
             echo -e "${GREEN}>> Listing real users...${NC}"
             list_real_users
             ;;
@@ -95,10 +96,24 @@ while true; do
             ;;
 
 
-        
-        4) echo -e "${GREEN}>> Generating full audit report...${NC}" ;;
-        0) echo "Exiting. Goodbye!"; break ;;
+        4) echo -e "${GREEN}>> Generating full audit report...${NC}"
+            show_last_login
+            ;;
+
+
+        0) echo "Exiting. Goodbye!";
+	    break
+	    ;;
+
         *) echo -e "${RED}Invalid choice, try again.${NC}" ;;
     esac
 done
 \
+
+
+
+
+
+
+
+
